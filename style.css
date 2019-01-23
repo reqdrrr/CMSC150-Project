@@ -1,0 +1,29 @@
+body {
+	margin-top: 50px;
+}
+
+img {
+	float: left;
+	width: 15%;
+	object-fit: contain;
+	margin-left: 30%;
+}
+
+.name{
+	float: right;
+	margin-right: 30%;
+}
+
+#intro {
+	margin-bottom: 20px;
+}
+
+#intro:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#content {
+	text-align: center;
+}
