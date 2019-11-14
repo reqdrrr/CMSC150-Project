@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>REQUIEM</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="CMSC150 Project">
-	<meta name="author" content="Jaimy Camille Arcilla">
 
-	<!-- styles -->
-	<link href="assets/css/bootstrap.css" rel="stylesheet">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>REQUIEM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- styles -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="assets/css/docs.css" rel="stylesheet">
-  <link href="assets/css/prettyPhoto.css" rel="stylesheet">
   <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-  <link href="assets/css/nivo-slider.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Open+Sans:400,300,300italic,400italic" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/color/success.css" rel="stylesheet">
@@ -32,13 +30,12 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
-
-	<script src="script.js"></script>
 </head>
-<body>
-	<!-- Header
- ================================================== -->
-	<header>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+  <!-- Header
+  ================================================== -->
+  <header>
     <!-- Navbar
     ================================================== -->
     <div class="navbar navbar-fixed-top">
@@ -46,18 +43,18 @@
         <div class="container">
           <!-- logo -->
           <a class="brand logo" href="index.html">
-						<img src="assets/img/logo.png" alt="" />
-				  </a>
+            <img src="assets/img/logo.png" alt="" />
+          </a>
           <!-- end logo -->
 
           <!-- top menu -->
           <div>
             <nav>
               <ul class="nav topnav">
-                <li class="success active">
+                <li class="success">
                   <a href="index.html"></i> Home</a>
                 </li>
-                <li class="primary">
+                <li class="primary active">
                   <a href="regression.html"> Regression</a>
                 </li>
                 <li class="danger">
@@ -78,37 +75,83 @@
     </div>
   </header>
 
-  <section id="intro">
-    <div class="jumbotron masthead">
+  <!-- Subhead
+================================================== -->
+  <section id="subintro">
+    <div class="jumbotron subhead" id="overview">
       <div class="container">
         <div class="row">
-          <div class="span12">
-
-            <div id="slider" class="nivoSlider">
-              <img src="assets/img/slides/nivo/img1.jpg" data-thumb="assets/img/slides/nivo/img1.jpg" alt="" />
-              <img src="assets/img/slides/nivo/img2.jpg" data-thumb="assets/img/slides/nivo/img2.jpg" alt="" title="#htmlcaption1" />
-              <img src="assets/img/slides/nivo/img3.jpg" data-thumb="assets/img/slides/nivo/img3.jpg" alt="" data-transition="slideInLeft" />
-              <img src="assets/img/slides/nivo/img4.jpg" data-thumb="assets/img/slides/nivo/img4.jpg" alt="" title="#htmlcaption2" />
-            </div>
-            <div id="htmlcaption1" class="nivo-html-caption">
-              <h2>Responsive layout</h2>
-              <p>
-                At pro solet consequat, feugait expetenda dignissim ne has. Usu tale referrentur eu. No cetero oblique vituperatoribus vix. Vocent suscipiantur eum id, probo facete persius te usu.
-              </p>
-            </div>
-            <div id="htmlcaption2" class="nivo-html-caption">
-              <h2>Lot of features</h2>
-              <p>
-                Tale saepe eu ius. Illum lorem mediocrem ad nec, aliquam consetetur quo no. In bonorum repudiare pri, ut vis verterem expetendis definitionem. Voluptua gloriatur eam eu.
-              </p>
-            </div>
-
+          <div class="span8">
+            <h3><i class="m-icon-big-swapright m-icon-white"></i> Polynomial Regression</h3>
+            <p>The process of modelling the relationship between a dependent and independent variable by means of a polynomial</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="container">
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+<!--       <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li><a href="#input"><i class="icon-chevron-right"></i> Input</a></li>
+          <li><a href="#output"><i class="icon-chevron-right"></i> Output</a></li>
+        </ul>
+      </div> -->
+      
+      <div class="span9">
+        <!-- Input
+        ================================================== -->
+        <section id="input" class="doc">
+          <div class="page-header first">
+            <h3>Input</h3>
+          </div>
+          <form class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label" for="inputFile">File</label>
+              <div class="controls">
+                <input type="file" id="inputFile" placeholder="File" required="required">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputDegree">Degree</label>
+              <div class="controls">
+                <input type="number" min="1" id="inputDegree" placeholder="Degree" required="required">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEstimate">Estimate Value</label>
+              <div class="controls">
+                <input type="number" id="inputEstimate" placeholder="Estimate Value" required="required ">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <button type="button" class="btn" onclick="PolynomialRegression()" ="">Solve!</button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <!-- Output
+        ================================================== -->
+        <section id="Output" class="doc">
+          <div class="page-header first">
+            <h3>Output</h3>
+          </div>
+          <p>Scaffold is a responsive HTML CSS site template based from twitter bootstrap and designed for multi purpose usage such as corporate business, web agency to showcase their works, marketing or product website to personal site. We believe that
+            Multitrap has complete elements and features to build a really great website. You can read some interesting pages showcasing all Multitrap features based from twitter bootstrap framework on several pages like scaffolding, base-css, components
+            and javascript.
+          </p>
+        </section>  
+      </div>
+
+    </div>
+
+
+  </div>
 
   <!-- Footer
  ================================================== -->
@@ -119,16 +162,16 @@
           <div class="widget">
             <h4>About us</h4>
             <address>
-					<strong>REQUIEM</strong><br>
-					University of the Philippines<br>
-					Los Banos, Laguna<br>
-					<abbr title="Phone">P:</abbr> (0956) 664-4904
-					</address>
+          <strong>REQUIEM</strong><br>
+          University of the Philippines<br>
+          Los Banos, Laguna<br>
+          <abbr title="Phone">P:</abbr> (0956) 664-4904
+          </address>
 
             <address>
-					<strong>Contact us</strong><br>
-					<a href="mailto:#">rqmdollars@gmail.com</a>
-					</address>
+          <strong>Contact us</strong><br>
+          <a href="mailto:#">rqmdollars@gmail.com</a>
+          </address>
           </div>
         </div>
         <div class="span4">
@@ -193,26 +236,22 @@
     </div>
   </footer>
 
-
-
   <script src="assets/js/jquery-1.8.2.min.js"></script>
   <script src="assets/js/jquery.easing.1.3.js"></script>
   <script src="assets/js/google-code-prettify/prettify.js"></script>
   <script src="assets/js/modernizr.js"></script>
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/jquery.elastislide.js"></script>
-  <script src="assets/js/jquery.flexslider.js"></script>
   <script src="assets/js/jquery.prettyPhoto.js"></script>
   <script src="assets/js/application.js"></script>
+  <script src="assets/js/portfolio/jquery.quicksand.js"></script>
+  <script src="assets/js/portfolio/setting.js"></script>
   <script src="assets/js/hover/jquery-hover-effect.js"></script>
   <script src="assets/js/hover/setting.js"></script>
-  <script src="assets/js/camera/camera.min.js"></script>
-  <script src="assets/js/camera/setting.js"></script>
 
-  <!-- Template Custom JavaScript File -->
-  <script src="assets/js/custom.js"></script>
-
-
+  <!-- Regression Function JavaScript File -->
+  <script src="functions/regression.js"></script>
 
 </body>
+
 </html>
