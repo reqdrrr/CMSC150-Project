@@ -6,41 +6,48 @@ function add(a,b) {
 
 function GaussJordan(m,row) {
   var a = m;
-  var n = row;
+  var n = row+1;
+  var j,k,l;
 
-  for(var i=0;i<n;i++) {
+  for(i=0;i<n;i++) {
     // find pivot row
-    var col = a.map(function(value,index) { return value[0]; });
+    var col = new Array(n);
+    for(j=i;j<=n;j++) {
+    	col[j] = a[i][j];
+    }
     var pivot_row_val = Math.max.apply(null, col.map(Math.abs));
     function findRow(arr,val) {
-    	for(var j=0;j<arr.length;j++) {
+    	for(j=i;j<arr.length;j++) {
     		if(arr[j]==val) return j;
     	}
     }
     var pivot_row = findRow(col,pivot_row_val)
 
     // swap
-    if(pivot_row>0){
-      var temp = a[pivot_row];
-      console.log(temp)
-      console.log(m)
-      a[pivot_row] = a[i];
-      a[i] = temp;
+    if(pivot_row>=0 && n!=2){
+    	var temp = a[pivot_row]
+			for(k=0;k<temp.length;k++) {
+				[a[pivot_row][k],a[i][k]]=[a[i][k],a[pivot_row][k]]
+			}
       if(a[pivot_row][i] == 0) {break;}
     }
-    
 
-    for(var k=0;k=n+1;k++) {
-    	a[i][k] = a[i][k]/a[i][i]
+    var div = a[i][i] 
+    for(k=0;k<n+1;k++) {
+    	a[i][k] = a[i][k]/div;
     }
-    // a[i] = a[i]/a[i][i];
     
-    // for(var j=0;j<n;j++){
-    //   if(i!=j) {
-    //   	normalized_row = a[j][i]*a[i];
-    //   	a[j] = a[j] - normalized_row;
-    //   }
-    // }
+    var normalized_row;
+    for(j=0;j<n;j++){
+      if(i!=j) {
+      	var mult = a[j][i]
+      	for(var k=0;k<=n;k++) {
+			   	normalized_row = mult*a[i][k];
+			   	a[j][k] = a[j][k] - normalized_row;
+			  }
+      }
+    }
+
   }
   return a;
 }
@@ -67,21 +74,27 @@ function PolynomialRegression() {
 	var y = [2.1,7.7,13.6,27.2,40.9,61.1];
 	var deg = Number(document.getElementById('inputDegree').value);
   // initialize matrix
-  var m = Array.from(Array(deg), () => new Array(deg+1));
+  var m = Array.from(Array(deg+1), () => new Array(deg+2));
   
   // update values of matrix
   var exp;
-  for(var i=0;i<deg;i++) {
-  	for(var j=0;j<deg;j++) {
+  for(var i=0;i<=deg;i++) {
+  	for(var j=0;j<=deg;j++) {
   		exp = i+j;
   		m[i][j] = mat(x,exp);
   	}
   	//update rhs
-  	m[i][deg] = rhs(x,y,i);
+  	m[i][deg+1] = rhs(x,y,i);
   }
   
-  console.log(m);
   // perform gauss-jordan
   m = GaussJordan(m,deg);
-  console.log(m);
+
+  //get RHS
+  var col = new Array(deg+1);
+  for(var j=0;j<deg+1;j++) {
+  	col[j] = m[j][deg+1];
+  }
+  // document.getElementById("output").innerHTML = col;
+  console.log(col);
 }
