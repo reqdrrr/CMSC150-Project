@@ -97,7 +97,7 @@ function PolynomialRegression() {
   }
   var text
   for(var j=0;j<deg+1;j++) {
-    node = document.createElement("div")
+    node = document.createElement("P")
     text = document.createTextNode(col[j]) + "  ")
     node.appendChild(text)
     document.getElementById("output").appendChild(node);
