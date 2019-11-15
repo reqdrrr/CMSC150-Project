@@ -96,6 +96,7 @@ function PolynomialRegression() {
   	col[j] = m[j][deg+1];
   }
   
-  document.getElementById("output").innerHTML = col;
+  // document.getElementById("output").innerHTML = col;
   console.log(col);
+  alert(col);
 }
