@@ -95,13 +95,7 @@ function PolynomialRegression() {
   for(var j=0;j<deg+1;j++) {
   	col[j] = m[j][deg+1];
   }
-  var text
-  for(var j=0;j<deg+1;j++) {
-    node = document.createElement("P")
-    text = document.createTextNode(col[j]) + "  ")
-    node.appendChild(text)
-    document.getElementById("output").appendChild(node);
-  }
-  // document.getElementById("output").innerHTML = col;
+  
+  document.getElementById("output").innerHTML = col;
   console.log(col);
 }
