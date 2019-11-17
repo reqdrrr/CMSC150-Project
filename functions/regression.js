@@ -93,7 +93,8 @@ function PolynomialRegression() {
   //get RHS
   var col = new Array(deg+1);
   for(var j=0;j<deg+1;j++) {
-  	col[j] = m[j][deg+1];
+  	col[j] = m[j][deg+1].toFixed(4);
+    // col[j] -> string
   }
   
   // document.getElementById("output").innerHTML = col;
