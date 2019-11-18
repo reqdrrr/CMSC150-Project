@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($){
 
 if (jQuery().quicksand) {
@@ -13,9 +12,9 @@ if (jQuery().quicksand) {
 		var filterClass=$(this).attr('class').split(' ').slice(-1)[0];
 		
 		if (filterClass == 'all') {
-			var $filteredData = $data.find('.portfolio-item2');
+			var $filteredData = $data.find('.portfolio-item');
 		} else {
-			var $filteredData = $data.find('.portfolio-item2[data-type=' + filterClass + ']');
+			var $filteredData = $data.find('.portfolio-item[data-type=' + filterClass + ']');
 		}
 		$(".portfolio-area").quicksand($filteredData, {
 			duration: 600,

@@ -2,20 +2,26 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>REQUIEM</title>
+  <meta charset="utf-8">
+  <title>Requiem - 150 Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Clean responsive bootstrap website template">
   <meta name="author" content="">
-
   <!-- styles -->
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="assets/css/docs.css" rel="stylesheet">
+  <link href="assets/css/prettyPhoto.css" rel="stylesheet">
   <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Open+Sans:400,300,300italic,400italic" rel="stylesheet">
+  <link href="assets/css/prettyPhoto.css" rel="stylesheet">
+  <link href="assets/css/flexslider.css" rel="stylesheet">
+  <link href="assets/css/refineslide.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.css" rel="stylesheet">
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/color/success.css" rel="stylesheet">
+  <link href="assets/color/default.css" rel="stylesheet">
 
   <!-- fav and touch icons -->
   <link rel="shortcut icon" href="assets/ico/favicon.ico">
@@ -25,161 +31,154 @@
   <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
   <!-- =======================================================
-    Theme Name: Scaffold
-    Theme URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+    Theme Name: Plato
+    Theme URL: https://bootstrapmade.com/plato-responsive-bootstrap-website-template/
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
 
-<body data-spy="scroll" data-target=".bs-docs-sidebar">
-  <!-- Header
-  ================================================== -->
+<body>
   <header>
     <!-- Navbar
     ================================================== -->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
+    <div class="cbp-af-header">
+      <div class=" cbp-af-inner">
         <div class="container">
-          <!-- logo -->
-          <a class="brand logo" href="index.html">
-            <img src="assets/img/logo.png" alt="" />
-          </a>
-          <!-- end logo -->
+          <div class="row">
 
-          <!-- top menu -->
-          <div>
-            <nav>
-              <ul class="nav topnav">
-                <li class="success">
-                  <a href="index.html"></i> Home</a>
-                </li>
-                <li class="primary active">
-                  <a href="regression.html"> Regression</a>
-                </li>
-                <li class="danger">
-                  <a href="#"> Interpolation</a>
-                </li>
-                <li class="warning">
-                  <a href="#"> Simplex</a>
-                </li>
-                <li class="inverse">
-                  <a href="user-manual.html"> User Manual</a>
-                </li>
-              </ul>
-            </nav>
+            <div class="span4">
+              <!-- logo -->
+              <div class="logo">
+                <h1><a href="index.html">Requiem</a></h1>
+                <!-- <img src="assets/img/logo.png" alt="" /> -->
+              </div>
+              <!-- end logo -->
+            </div>
+
+            <div class="span8">
+              <!-- top menu -->
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <nav>
+                    <ul class="nav topnav">
+                      <li class="dropdown">
+                        <a href="index.html">Home</a>
+                      </li>
+                      <li class="dropdown active">
+                        <a href="regression.html">Regression</a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="interpolation.html">Interpolation</a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="simplex.html">Simplex</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <!-- end menu -->
+            </div>
+
           </div>
-          <!-- end menu -->
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Subhead
-  ================================================== -->
   <section id="subintro">
-    <div class="jumbotron subhead" id="overview">
-      <div class="container">
-        <div class="row">
-          <div class="span8">
-            <h3><i class="m-icon-big-swapright m-icon-white"></i> Polynomial Regression</h3>
-            <p>The process of modelling the relationship between a dependent and independent variable by means of a polynomial</p>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="span4">
+          <h3><strong>Polynomial Regression</strong></h3>
+        </div>
+        <div class="span8">
+          <ul class="breadcrumb notop">
+            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li class="active">Regression</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="container">
-    <!-- Docs nav
-    ================================================== -->
-    <div class="row">
-<!--       <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-          <li><a href="#input"><i class="icon-chevron-right"></i> Input</a></li>
-          <li><a href="#output"><i class="icon-chevron-right"></i> Output</a></li>
-        </ul>
-      </div> -->
-      
-      <div class="span9">
-        <!-- Input
-        ================================================== -->
-        <section id="input" class="doc">
-          <div class="page-header first">
-            <h3>Input</h3>
-          </div>
-          <form class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label" for="inputFile">Input CSV File</label>
-              <div class="controls">
-                <input type="file" id="inputFile" placeholder="File" required="required" accept=".csv">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputDegree">Degree</label>
-              <div class="controls">
-                <input type="number" min="1" id="inputDegree" placeholder="Degree" required="required">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputEstimate">Estimate Value</label>
-              <div class="controls">
-                <input type="number" id="inputEstimate" placeholder="Estimate Value" required="required ">
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <button type="button" class="btn" onclick="PolynomialRegression()" ="">Solve!</button>
-              </div>
-            </div>
-          </form>
-        </section>
+  <section id="maincontent">
+    <div class="container">
 
-        <!-- Output
-        ================================================== -->
-        <section id="Output" class="doc">
-          <div class="page-header first">
-            <h3>Output</h3>
-          </div>
-          <div id="output"></div>
-          <p>Scaffold is a responsive HTML CSS site template based from twitter bootstrap and designed for multi purpose usage such as corporate business, web agency to showcase their works, marketing or product website to personal site. We believe that
-            Multitrap has complete elements and features to build a really great website. You can read some interesting pages showcasing all Multitrap features based from twitter bootstrap framework on several pages like scaffolding, base-css, components
-            and javascript.
-          </p>
-        </section>  
+      <div class="row">
+
+        <div class="span12">
+          <!-- Input
+          ================================================== -->
+          <section id="global">
+            <div class="page-header">
+              <h3>Input</h3>
+            </div>
+            <!-- <h5 id="headings">Requires HTML5 doctype</h5>
+            <p>
+              This template makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
+            </p> -->
+            <form class="form-horizontal">
+              <div class="control-group">
+                <label class="control-label" for="inputFile">Input File</label>
+                <div class="controls"><input type="file" id="inputFile"></div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="degree">Degree</label>
+                <div class="controls"><input type="number" min="1" id="inputDegree" placeholder="Enter number greater than 0"></div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="estimate">Estimate Value</label>
+                <div class="controls"><input type="number" step="any" id="inputEstimate" placeholder="Enter number"></div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="button" class="btn" onclick="PolynomialRegression()" ="">Solve!</button>
+                </div>
+              </div>
+            </form>            
+          </section>
+          <!-- Output
+          ================================================== -->
+          <section id="gridSystem" class="doc">
+            <div class="page-header">
+              <h3>Output</h3>
+            </div>
+            <div id="outputRegression" class="offset1"></div>
+          </section>
+        </div>
       </div>
 
     </div>
+  </section>
 
 
-  </div>
 
-  <!-- Footer
+    <!-- Footer
  ================================================== -->
   <footer class="footer">
     <div class="container">
       <div class="row">
         <div class="span4">
           <div class="widget">
-            <h4>About us</h4>
+            <!-- logo -->
+            <div class="footerlogo">
+              <h6><a href="index.html">Requiem</a></h6>
+              <!-- <img src="assets/img/logo.png" alt="" /> -->
+            </div>
+            <!-- end logo -->
             <address>
-          <strong>REQUIEM</strong><br>
-          University of the Philippines<br>
-          Los Banos, Laguna<br>
-          <abbr title="Phone">P:</abbr> (0956) 664-4904
-          </address>
-
-            <address>
-          <strong>Contact us</strong><br>
-          <a href="mailto:#">rqmdollars@gmail.com</a>
-          </address>
+        <strong>Requiem Dollars</strong><br>
+         University of the Philippines<br>
+         Los Ba&#241;os, Laguna 4030<br>
+        <abbr title="Phone">P:</abbr> (0956) 664-4904 </address>
           </div>
         </div>
         <div class="span4">
           <div class="widget">
-            <h4>Browse pages</h4>
-            <ul class="nav nav-list regular">
-              <li class="nav-header">More from us</li>
+            <h5>More from us</h5>
+            <ul class="list list-ok">
               <li><a href="https://www.youtube.com/channel/UCwUp18arkxyhj86CEe25q7Q">Requiem Studio</a></li>
               <li><a href="https://www.instagram.com/rqm_clothing/">Requiem Clothing</a></li>
             </ul>
@@ -187,36 +186,34 @@
         </div>
         <div class="span4">
           <div class="widget">
-            <h4>Get email updates</h4>
-            <form class="form-horizontal" action="#" method="post">
-              <fieldset>
-                <p>
-                  Sign up for email updates and we'll plant a tree for you through Trees for the Future.
-                </p>
-
-                <div class="input-prepend input-append">
-                  <input class="span2" id="appendedPrependedInput" type="text" placeholder="Email">
-                  <button class="btn btn-inverse" type="submit">Subscribe!</button>
-                </div>
-              </fieldset>
+            <h5>Keep updated</h5>
+            <p>
+              Enter your email to subcribe newsletter
+            </p>
+            <form>
+              <div class="input-append">
+                <input class="span2" id="appendedInputButton" type="text">
+                <button class="btn btn-color" type="submit">Subscribe</button>
+              </div>
             </form>
-            <ul class="social_small">
-              <li class="facebook first"><a href="#" title="Facebook">Facebook</a></li>
-              <li class="twitt"><a href="#" title="Twitter">Twitter</a></li>
-              <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
-              <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
-              <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+            <ul class="social-network">
+              <li><a href="#"><i class="icon-bg-light icon-facebook icon-circled icon-1x"></i></a></li>
+              <li><a href="#" title="Twitter"><i class="icon-bg-light icon-twitter icon-circled icon-1x"></i></a></li>
+              <li><a href="#" title="Linkedin"><i class="icon-bg-light icon-linkedin icon-circled icon-1x"></i></a></li>
+              <li><a href="#" title="Pinterest"><i class="icon-bg-light icon-pinterest icon-circled icon-1x"></i></a></li>
+              <li><a href="#" title="Google plus"><i class="icon-bg-light icon-google-plus icon-circled icon-1x"></i></a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="verybottom">
+    <div class="subfooter">
       <div class="container">
         <div class="row">
           <div class="span6">
-            <p>&copy; Scaffold - All right reserved</p>
+            <p>
+              &copy; Plato - All right reserved
+            </p>
           </div>
           <div class="span6">
             <div class="pull-right">
@@ -225,7 +222,7 @@
                   All the links in the footer should remain intact.
                   You can delete the links only if you purchased the pro version.
                   Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Scaffold
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Plato
                 -->
                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
@@ -233,25 +230,28 @@
           </div>
         </div>
       </div>
-
     </div>
   </footer>
 
-  <script src="assets/js/jquery-1.8.2.min.js"></script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/modernizr.js"></script>
   <script src="assets/js/jquery.easing.1.3.js"></script>
   <script src="assets/js/google-code-prettify/prettify.js"></script>
-  <script src="assets/js/modernizr.js"></script>
   <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/jquery.elastislide.js"></script>
   <script src="assets/js/jquery.prettyPhoto.js"></script>
-  <script src="assets/js/application.js"></script>
   <script src="assets/js/portfolio/jquery.quicksand.js"></script>
   <script src="assets/js/portfolio/setting.js"></script>
   <script src="assets/js/hover/jquery-hover-effect.js"></script>
-  <script src="assets/js/hover/setting.js"></script>
+  <script src="assets/js/jquery.flexslider.js"></script>
+  <script src="assets/js/classie.js"></script>
+  <script src="assets/js/cbpAnimatedHeader.min.js"></script>
+  <script src="assets/js/jquery.refineslide.js"></script>
+  <script src="assets/js/jquery.ui.totop.js"></script>
+  <script src="assets/js/animate.js"></script>
+  
 
-  <!-- Regression Function JavaScript File -->
-  <script src="functions/regression.js"></script>
+  <!-- Template Custom Javascript File -->
+  <script src="assets/js/regression.js"></script>
 
 </body>
 
