@@ -1,9 +1,45 @@
-function add(a,b) {
-	var x = [0,1,2,3,4,5];
-	var y = [2.1,7.7,13.6,27.2,40.9,61.1];
-	PolynomialRegression();
+// FOR FILE READING -----------
+function getAsText(fileToRead) {
+  var reader = new FileReader();
+  // Read file into memory as UTF-8      
+  reader.readAsText(fileToRead);
+  // Handle errors load
+  reader.onload = loadHandler;
+  reader.onerror = errorHandler;
 }
 
+function loadHandler(event) {
+  var csv = event.target.result;
+  processData(csv);
+}
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    // var headers = allTextLines[0].split(',');
+    var lines = [];
+
+    for (var i=0; i<allTextLines.length-1; i++) {
+        var data = allTextLines[i].split(',');
+        var tarr = [];
+            for (var j=0; j<data.length; j++) {
+                tarr.push(data[j]);
+            }
+            lines.push(tarr);
+    }
+    // alert(lines);
+    console.log(lines)
+    PolynomialRegression(lines)
+}
+
+
+function errorHandler(evt) {
+  if(evt.target.error.name == "NotReadableError") {
+    alert("Canno't read file !");
+  }
+}
+// ----------------------------
+
+// FOR POLYNOMIAL REGRESSION --
 function GaussJordan(m,row) {
   var a = m;
   var n = row+1;
@@ -68,11 +104,33 @@ function rhs(x,y,i) {
 	return sum;
 }
 
-function PolynomialRegression() {
+function test() {
+  getAsText(document.getElementById('inputFile').files[0])
+}
+
+function PolynomialRegression(lines) {
 	//get params
-	var x = [0,1,2,3,4,5];
-	var y = [2.1,7.7,13.6,27.2,40.9,61.1];
+  //var data = document.getElementById("inputFile").csv.toObjects(csv)
+  //var data = Papa.parse(csvString);
+  //var data = getAsText(document.getElementById('inputFile').files[0])
+	//var x = [0,1,2,3,4,5];
+  //var y = [2.1,7.7,13.6,27.2,40.9,61.1];
+  //var x = lines.map(function(value,index) { return value[0]; })
+  //var y = lines.map(function(value,index) { return value[1]; })
 	var deg = Number(document.getElementById('inputDegree').value);
+  if(deg+1>x.length) {
+    console.log("Error")
+    var doc = document.getElementById("outputRegression")
+    if(doc.children.length>0) {
+      doc.removeChild(doc.children[1]); 
+      doc.removeChild(doc.children[0]); 
+    }
+    var node = document.createElement("H6");
+    var textNode = document.createTextNode("NOPE");
+    node.appendChild(textNode);
+    document.getElementById("outputRegression").appendChild(node);
+  } 
+  else{
   // initialize matrix
   var m = Array.from(Array(deg+1), () => new Array(deg+2));
   
@@ -121,4 +179,6 @@ function PolynomialRegression() {
   textNode = document.createTextNode("f(" + x + ") = " + sum.toFixed(4));
   node.appendChild(textNode);
   document.getElementById("outputRegression").appendChild(node);
+  }
 }
+// ----------------------------
