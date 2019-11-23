@@ -1,58 +1,58 @@
 //add event listeners
 document.getElementById('c11').addEventListener("input",function() {
-    console.log(document.getElementById('c11').innerHTML)
-    add()
+    console.log(document.getElementById('c11').innerHTML) 
 },false)
 document.getElementById('c12').addEventListener("input",function() {
     console.log(document.getElementById('c12').innerHTML)
-    add()
 },false)
 document.getElementById('c13').addEventListener("input",function() {
     console.log(document.getElementById('c13').innerHTML)
-    add()
+},false)
+document.getElementById('c14').addEventListener("input",function() {
+    console.log(document.getElementById('c14').innerHTML)
+},false)
+document.getElementById('c15').addEventListener("input",function() {
+    console.log(document.getElementById('c15').innerHTML)
+},false)
+document.getElementById('c16').addEventListener("input",function() {
+    console.log(document.getElementById('c16').innerHTML)
 },false)
 document.getElementById('c21').addEventListener("input",function() {
     console.log(document.getElementById('c21').innerHTML)  
-    add()
 },false)
 document.getElementById('c22').addEventListener("input",function() {
     console.log(document.getElementById('c22').innerHTML)
-    add()
 },false)
 document.getElementById('c23').addEventListener("input",function() {
     console.log(document.getElementById('c23').innerHTML)
-    add()
+},false)
+document.getElementById('c24').addEventListener("input",function() {
+    console.log(document.getElementById('c24').innerHTML)
+},false)
+document.getElementById('c25').addEventListener("input",function() {
+    console.log(document.getElementById('c25').innerHTML)
+},false)
+document.getElementById('c26').addEventListener("input",function() {
+    console.log(document.getElementById('c26').innerHTML)
 },false)
 document.getElementById('c31').addEventListener("input",function() {
     console.log(document.getElementById('c31').innerHTML)
-    add()
 },false)
 document.getElementById('c32').addEventListener("input",function() {
     console.log(document.getElementById('c32').innerHTML)
-    add()
 },false)
 document.getElementById('c33').addEventListener("input",function() {
     console.log(document.getElementById('c33').innerHTML)
-    add()
 },false)
-
-function add() {
-  c11 = Number(document.getElementById('c11').innerHTML)
-  c12 = Number(document.getElementById('c12').innerHTML)
-  c21 = Number(document.getElementById('c21').innerHTML)
-  c22 = Number(document.getElementById('c22').innerHTML)
-
-  sumr1 = c11 + c12
-  document.getElementById('c13').innerHTML = sumr1
-  sumr2 = c21 + c22
-  document.getElementById('c23').innerHTML = sumr2
-  sumc1 = c11 + c21
-  document.getElementById('c31').innerHTML = sumc1
-  sumc2 = c12 + c22
-  document.getElementById('c32').innerHTML = sumc2
-  total = sumr1 + sumr2
-  document.getElementById('c33').innerHTML = total
-}
+document.getElementById('c34').addEventListener("input",function() {
+    console.log(document.getElementById('c34').innerHTML)
+},false)
+document.getElementById('c35').addEventListener("input",function() {
+    console.log(document.getElementById('c35').innerHTML)
+},false)
+document.getElementById('c36').addEventListener("input",function() {
+    console.log(document.getElementById('c36').innerHTML)
+},false)
 
 
 function findPivotColumn(Z) {
@@ -133,6 +133,33 @@ function checkZ(m,nrow,ncol) {
 
 function simplex() {
   //read input from document
+  c11 = document.getElementById('c11').innerHTML
+  c12 = document.getElementById('c12').innerHTML
+  c13 = document.getElementById('c13').innerHTML
+  c14 = document.getElementById('c14').innerHTML
+  c15 = document.getElementById('c15').innerHTML
+  c16 = document.getElementById('c16').innerHTML
+
+  c21 = document.getElementById('c21').innerHTML
+  c22 = document.getElementById('c22').innerHTML
+  c23 = document.getElementById('c23').innerHTML
+  c24 = document.getElementById('c24').innerHTML
+  c25 = document.getElementById('c25').innerHTML
+  c26 = document.getElementById('c26').innerHTML
+
+  c31 = document.getElementById('c31').innerHTML
+  c32 = document.getElementById('c32').innerHTML
+  c33 = document.getElementById('c33').innerHTML
+  c34 = document.getElementById('c34').innerHTML
+  c35 = document.getElementById('c35').innerHTML
+  c36 = document.getElementById('c36').innerHTML
+
+  c41 = document.getElementById('c41').innerHTML
+  c42 = document.getElementById('c42').innerHTML
+  c43 = document.getElementById('c43').innerHTML
+  c44 = document.getElementById('c44').innerHTML
+  c45 = document.getElementById('c45').innerHTML
+
   //initialize array: Z[], TR[], m[][]
   //initialize m size: nrow, ncol
   //initialize max # of iterations 
@@ -148,4 +175,5 @@ function simplex() {
 
 
   //print output to document
+  //document.getElementById('output').innerHTML = cost
 }
