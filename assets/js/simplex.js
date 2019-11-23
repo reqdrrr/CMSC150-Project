@@ -1,57 +1,76 @@
+simplex()
 //add event listeners
 document.getElementById('c11').addEventListener("input",function() {
-    console.log(document.getElementById('c11').innerHTML) 
+    console.log(document.getElementById('c11').innerHTML)
+    simplex()
 },false)
 document.getElementById('c12').addEventListener("input",function() {
     console.log(document.getElementById('c12').innerHTML)
+    simplex()
 },false)
 document.getElementById('c13').addEventListener("input",function() {
     console.log(document.getElementById('c13').innerHTML)
+    simplex()
 },false)
 document.getElementById('c14').addEventListener("input",function() {
     console.log(document.getElementById('c14').innerHTML)
+    simplex()
 },false)
 document.getElementById('c15').addEventListener("input",function() {
     console.log(document.getElementById('c15').innerHTML)
+    simplex()
 },false)
 document.getElementById('c16').addEventListener("input",function() {
     console.log(document.getElementById('c16').innerHTML)
+    simplex()
 },false)
 document.getElementById('c21').addEventListener("input",function() {
-    console.log(document.getElementById('c21').innerHTML)  
+    console.log(document.getElementById('c21').innerHTML) 
+    simplex() 
 },false)
 document.getElementById('c22').addEventListener("input",function() {
     console.log(document.getElementById('c22').innerHTML)
+    simplex()
 },false)
 document.getElementById('c23').addEventListener("input",function() {
     console.log(document.getElementById('c23').innerHTML)
+    simplex()
 },false)
 document.getElementById('c24').addEventListener("input",function() {
     console.log(document.getElementById('c24').innerHTML)
+    simplex()
 },false)
 document.getElementById('c25').addEventListener("input",function() {
     console.log(document.getElementById('c25').innerHTML)
+    simplex()
 },false)
 document.getElementById('c26').addEventListener("input",function() {
     console.log(document.getElementById('c26').innerHTML)
+    simplex()
 },false)
 document.getElementById('c31').addEventListener("input",function() {
     console.log(document.getElementById('c31').innerHTML)
+    simplex()
 },false)
 document.getElementById('c32').addEventListener("input",function() {
     console.log(document.getElementById('c32').innerHTML)
+    simplex()
 },false)
 document.getElementById('c33').addEventListener("input",function() {
     console.log(document.getElementById('c33').innerHTML)
+    simplex()
 },false)
 document.getElementById('c34').addEventListener("input",function() {
     console.log(document.getElementById('c34').innerHTML)
+    simplex()
 },false)
 document.getElementById('c35').addEventListener("input",function() {
     console.log(document.getElementById('c35').innerHTML)
+    simplex()
 },false)
 document.getElementById('c36').addEventListener("input",function() {
     console.log(document.getElementById('c36').innerHTML)
+    simplex()
 },false)
 
 
@@ -69,7 +88,8 @@ function findPivotColumn(Z) {
 }
 
 function solveTR(m,nrow,RHS,pivot_column) {
-  for(var i=0;i<nrow;i++) {
+  var TR = [0,0,0,0,0,0,0,0]
+  for(var i=0;i<nrow-1;i++) {
     if(m[i][pivot_column]!=0) {
       TR[i] = m[i][RHS]/m[i][pivot_column]
     }
@@ -78,55 +98,52 @@ function solveTR(m,nrow,RHS,pivot_column) {
 }
 
 function findPivotRow(TR) {
-  var location = 0
-  var min = TR[0]
+  var location
+  var min = -1
 
-  for(var i=1;i<TR.length;i++) {
-    if(TR[i]) {
-      if(TR[i]<min) {
-        min = TR[i]
-        location = i
-      }
+  for(var i=0;i<TR.length;i++) {
+    //set initial min
+    if(TR[i]>0 && min==-1) {
+      min = TR[i]
+      location = i
+    }
+    //update min
+    if(TR[i]<min && TR[i]>0) {
+      min = TR[i]
+      location = i
     }
   }
   return location
 }
 
-function GaussJordan(a,n,pivot_row) {
-  var i,j,k,l;
+function GaussJordan(a,nrow,ncol,pivot_row,pivot_column) {
+  var i,j,normalized_row;
 
-  for(i=0;i<n;i++) {
-    // swap
-    var temp = a[pivot_row]
-		for(k=0;k<temp.length;k++) {
-			[a[pivot_row][k],a[i][k]]=[a[i][k],a[pivot_row][k]]
-		}
-    if(a[pivot_row][i] == 0) {break;}
+  div = a[pr][pc]
+  for(j=0;j<ncol;j++) {
+    a[pr][j] = a[pr][j]/div
+  }
 
-    var div = a[i][i] 
-    for(k=0;k<n+1;k++) {
-    	a[i][k] = a[i][k]/div;
-    }
-    
-    var normalized_row;
-    for(j=0;j<=n;j++){
-      if(i!=j) {
-      	var mult = a[j][i]
-      	for(var k=0;k<=n;k++) {
-			   	normalized_row = mult*a[i][k];
-			   	a[j][k] = a[j][k] - normalized_row;
-			  }
+  for(i=0;i<nrow;i++) {
+    if(i!=pr) {
+      var mult = a[i][pc]/a[pr][pc]
+      for(j=0;j<ncol;j++){
+        normalized_row = mult*a[pr][j]
+        a[i][j] = a[i][j] - normalized_row
       }
     }
-
   }
+
   return a;
 }
 
 function checkZ(m,nrow,ncol) {
   var neg = 0;
   for(var i=0;i<ncol;i++) {
-    if(m[i][nrow-1]<0) neg=1
+    if(m[nrow][i]<0) {
+      neg=1
+      break; 
+    }
   }
   return neg
 }
@@ -160,20 +177,36 @@ function simplex() {
   c44 = document.getElementById('c44').innerHTML
   c45 = document.getElementById('c45').innerHTML
 
-  //initialize array: Z[], TR[], m[][]
-  //initialize m size: nrow, ncol
-  //initialize max # of iterations 
-
+  //initialize max, # of iterations 
+  var max = 3
   var i = 0
+  //initialize array: Z[], TR[], m[][], m size: nrow ncol
   var TR;
-  while(checkZ(m,nrow,ncol) && i<max) {
+  var Z = [-c11,-c21,-c31,-c12,-c22,-c32,-c13,-c23,-c33,-c14,-c24,-c34,-c15,-c25,-c35,0,0,0,0,0,0,0,0,1,0]
+  var m = [[1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,310],
+           [0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,260],
+           [0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,280],
+           [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,180],
+           [0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,80],
+           [0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,200],
+           [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,160],
+           [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,220],
+           Z]
+  var nrow = 9
+  var ncol = 25
+  console.log(m)
+
+  while(checkZ(m,nrow-1,ncol)==1 && i<max) {
+    Z = m[8]
     pc = findPivotColumn(Z)
     TR=solveTR(m,nrow,ncol-1,pc)
     pr = findPivotRow(TR)
-    m = GaussJordan(m,nrow-1,pr)
+    m = GaussJordan(m,nrow,ncol,pr,pc)
+    i++
   }
 
+  cost = m[nrow-1][ncol-1]
 
   //print output to document
-  //document.getElementById('output').innerHTML = cost
+  document.getElementById('output').innerHTML = cost
 }
