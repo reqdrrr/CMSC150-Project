@@ -179,7 +179,7 @@ function simplex() {
 
   //initialize max, # of iterations 
   var max = 5
-  var i = 1
+  var i = 2
   //initialize array: Z[], TR[], m[][], m size: nrow ncol
   var TR;
   //x1,y1,z1,x2,y2,z2...
@@ -195,9 +195,8 @@ function simplex() {
            Z]
   var nrow = 9
   var ncol = 25
-  console.log(m)
 
-  m = GaussJordan(m,nrow,ncol,4,3)
+  m = GaussJordan(m,nrow,ncol,0,0)
   while(checkZ(m,nrow-1,ncol)==1 && i<max) {
     Z = m[8]
     pc = findPivotColumn(Z)
@@ -206,7 +205,7 @@ function simplex() {
     m = GaussJordan(m,nrow,ncol,pr,pc)
     i++
   }
-
+  console.log(m)
   cost = m[nrow-1][ncol-1]
 
   //print output to document
