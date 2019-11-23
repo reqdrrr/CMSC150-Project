@@ -78,7 +78,7 @@ function findPivotColumn(Z) {
   var location = 0
   var min = Z[0]
 
-  for(var i=1;i<Z.length;i++) {
+  for(var i=1;i<Z.length-1;i++) {
     if(Z[i]<min) {
       min = Z[i]
       location = i
@@ -116,7 +116,7 @@ function findPivotRow(TR) {
   return location
 }
 
-function GaussJordan(a,nrow,ncol,pivot_row,pivot_column) {
+function GaussJordan(a,nrow,ncol,pr,pc) {
   var i,j,normalized_row;
 
   div = a[pr][pc]
@@ -150,52 +150,54 @@ function checkZ(m,nrow,ncol) {
 
 function simplex() {
   //read input from document
-  c11 = document.getElementById('c11').innerHTML
-  c12 = document.getElementById('c12').innerHTML
-  c13 = document.getElementById('c13').innerHTML
-  c14 = document.getElementById('c14').innerHTML
-  c15 = document.getElementById('c15').innerHTML
-  c16 = document.getElementById('c16').innerHTML
+  c11 = Number(document.getElementById('c11').innerHTML)
+  c12 = Number(document.getElementById('c12').innerHTML)
+  c13 = Number(document.getElementById('c13').innerHTML)
+  c14 = Number(document.getElementById('c14').innerHTML)
+  c15 = Number(document.getElementById('c15').innerHTML)
+  c16 = Number(document.getElementById('c16').innerHTML)
 
-  c21 = document.getElementById('c21').innerHTML
-  c22 = document.getElementById('c22').innerHTML
-  c23 = document.getElementById('c23').innerHTML
-  c24 = document.getElementById('c24').innerHTML
-  c25 = document.getElementById('c25').innerHTML
-  c26 = document.getElementById('c26').innerHTML
+  c21 = Number(document.getElementById('c21').innerHTML)
+  c22 = Number(document.getElementById('c22').innerHTML)
+  c23 = Number(document.getElementById('c23').innerHTML)
+  c24 = Number(document.getElementById('c24').innerHTML)
+  c25 = Number(document.getElementById('c25').innerHTML)
+  c26 = Number(document.getElementById('c26').innerHTML)
 
-  c31 = document.getElementById('c31').innerHTML
-  c32 = document.getElementById('c32').innerHTML
-  c33 = document.getElementById('c33').innerHTML
-  c34 = document.getElementById('c34').innerHTML
-  c35 = document.getElementById('c35').innerHTML
-  c36 = document.getElementById('c36').innerHTML
+  c31 = Number(document.getElementById('c31').innerHTML)
+  c32 = Number(document.getElementById('c32').innerHTML)
+  c33 = Number(document.getElementById('c33').innerHTML)
+  c34 = Number(document.getElementById('c34').innerHTML)
+  c35 = Number(document.getElementById('c35').innerHTML)
+  c36 = Number(document.getElementById('c36').innerHTML)
 
-  c41 = document.getElementById('c41').innerHTML
-  c42 = document.getElementById('c42').innerHTML
-  c43 = document.getElementById('c43').innerHTML
-  c44 = document.getElementById('c44').innerHTML
-  c45 = document.getElementById('c45').innerHTML
+  c41 = Number(document.getElementById('c41').innerHTML)
+  c42 = Number(document.getElementById('c42').innerHTML)
+  c43 = Number(document.getElementById('c43').innerHTML)
+  c44 = Number(document.getElementById('c44').innerHTML)
+  c45 = Number(document.getElementById('c45').innerHTML)
 
   //initialize max, # of iterations 
-  var max = 3
-  var i = 0
+  var max = 5
+  var i = 1
   //initialize array: Z[], TR[], m[][], m size: nrow ncol
   var TR;
-  var Z = [-c11,-c21,-c31,-c12,-c22,-c32,-c13,-c23,-c33,-c14,-c24,-c34,-c15,-c25,-c35,0,0,0,0,0,0,0,0,1,0]
-  var m = [[1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,310],
-           [0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,260],
-           [0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,280],
-           [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,180],
-           [0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,80],
-           [0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,200],
-           [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,160],
-           [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,220],
+  //x1,y1,z1,x2,y2,z2...
+  var Z = [c11,c21,c31,c12,c22,c32,c13,c23,c33,c14,c24,c34,c15,c25,c35,0,0,0,0,0,0,0,0,1,0]
+  var m = [[1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,c16],
+           [0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,c26],
+           [0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,c36],
+           [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,c41],
+           [0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,c42],
+           [0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,c43],
+           [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,-1,0,0,c44],
+           [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,c45],
            Z]
   var nrow = 9
   var ncol = 25
   console.log(m)
 
+  m = GaussJordan(m,nrow,ncol,4,3)
   while(checkZ(m,nrow-1,ncol)==1 && i<max) {
     Z = m[8]
     pc = findPivotColumn(Z)
@@ -208,5 +210,5 @@ function simplex() {
   cost = m[nrow-1][ncol-1]
 
   //print output to document
-  document.getElementById('output').innerHTML = cost
+  document.getElementById('output').innerHTML = -cost
 }
