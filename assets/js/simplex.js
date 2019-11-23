@@ -1,3 +1,60 @@
+//add event listeners
+document.getElementById('c11').addEventListener("input",function() {
+    console.log(document.getElementById('c11').innerHTML)
+    add()
+},false)
+document.getElementById('c12').addEventListener("input",function() {
+    console.log(document.getElementById('c12').innerHTML)
+    add()
+},false)
+document.getElementById('c13').addEventListener("input",function() {
+    console.log(document.getElementById('c13').innerHTML)
+    add()
+},false)
+document.getElementById('c21').addEventListener("input",function() {
+    console.log(document.getElementById('c21').innerHTML)  
+    add()
+},false)
+document.getElementById('c22').addEventListener("input",function() {
+    console.log(document.getElementById('c22').innerHTML)
+    add()
+},false)
+document.getElementById('c23').addEventListener("input",function() {
+    console.log(document.getElementById('c23').innerHTML)
+    add()
+},false)
+document.getElementById('c31').addEventListener("input",function() {
+    console.log(document.getElementById('c31').innerHTML)
+    add()
+},false)
+document.getElementById('c32').addEventListener("input",function() {
+    console.log(document.getElementById('c32').innerHTML)
+    add()
+},false)
+document.getElementById('c33').addEventListener("input",function() {
+    console.log(document.getElementById('c33').innerHTML)
+    add()
+},false)
+
+function add() {
+  c11 = Number(document.getElementById('c11').innerHTML)
+  c12 = Number(document.getElementById('c12').innerHTML)
+  c21 = Number(document.getElementById('c21').innerHTML)
+  c22 = Number(document.getElementById('c22').innerHTML)
+
+  sumr1 = c11 + c12
+  document.getElementById('c13').innerHTML = sumr1
+  sumr2 = c21 + c22
+  document.getElementById('c23').innerHTML = sumr2
+  sumc1 = c11 + c21
+  document.getElementById('c31').innerHTML = sumc1
+  sumc2 = c12 + c22
+  document.getElementById('c32').innerHTML = sumc2
+  total = sumr1 + sumr2
+  document.getElementById('c33').innerHTML = total
+}
+
+
 function findPivotColumn(Z) {
   var location = 0
   var min = Z[0]

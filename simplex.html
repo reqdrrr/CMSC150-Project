@@ -65,13 +65,13 @@
                       <li class="dropdown">
                         <a href="index.html">Home</a>
                       </li>
-                      <li class="dropdown active">
+                      <li class="dropdown">
                         <a href="regression.html">Regression</a>
                       </li>
                       <li class="dropdown">
                         <a href="404.html">Interpolation</a>
                       </li>
-                      <li class="dropdown">
+                      <li class="dropdown active">
                         <a href="simplex.html">Simplex</a>
                       </li>
                     </ul>
@@ -91,12 +91,12 @@
     <div class="container">
       <div class="row">
         <div class="span4">
-          <h3><strong>Polynomial Regression</strong></h3>
+          <h3><strong>Simplex Method</strong></h3>
         </div>
         <div class="span8">
           <ul class="breadcrumb notop">
             <li><a href="index.html">Home</a><span class="divider">/</span></li>
-            <li class="active">Regression</li>
+            <li class="active">Simplex</li>
           </ul>
         </div>
       </div>
@@ -107,45 +107,33 @@
     <div class="container">
 
       <div class="row">
-        <div class="span6">
-          <!-- Input
-          ================================================== -->
-          <section id="global">
-            <div class="page-header">
-              <h3>Input</h3>
-            </div>
-            <!-- <h5 id="headings">Requires HTML5 doctype</h5>
-            <p>
-              This template makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.
-            </p> -->
-            <form class="form-horizontal">
-              <div class="control-group">
-                <label class="control-label" for="inputFile">Input File</label>
-                <div class="controls"><input type="file" id="inputFile" accept=".csv"></div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="degree">Degree</label>
-                <div class="controls"><input type="number" min="1" id="inputDegree" placeholder="Enter number greater than 0"></div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="estimate">Estimate Value</label>
-                <div class="controls"><input type="number" step="any" id="inputEstimate" placeholder="Enter number"></div>
-              </div>
-              <div class="control-group">
-                <div class="controls">
-                  <button type="button" class="btn" onclick="test()" ="">Solve!</button>
-                </div>
-              </div>
-            </form>            
-          </section>
-        </div>
-        <div class="span6">
-          <!-- Output
-          ================================================== -->
-          <div class="page-header">
-            <h3>Output</h3>
-          </div>
-          <div id="outputRegression"></div>
+        <div class="span12">
+          <table class="table table-striped">
+            <tr>
+              <th></th>
+              <th>Col 1</th>
+              <th>Col 2</th>
+              <th>Sum</th>
+            </tr>
+            <tr>
+              <th>Row 1</th>
+              <td id="c11" contenteditable="true">1</td>
+              <td id="c12" contenteditable="true">2</td>
+              <td id="c13" contenteditable="true">3</td>
+            </tr>
+            <tr>
+              <th>Row 2</th>
+              <td id="c21" contenteditable="true">3</td>
+              <td id="c22" contenteditable="true">4</td>
+              <td id="c23" contenteditable="true">7</td>
+            </tr>
+            <tr>
+              <th>Sum</th>
+              <td id="c31" contenteditable="true">4</td>
+              <td id="c32" contenteditable="true">6</td>
+              <td id="c33" contenteditable="true">10</td>
+            </tr>
+          </table>
         </div>
       </div>
 
@@ -249,7 +237,7 @@
   <script src="assets/js/animate.js"></script>
 
   <!-- Template Custom Javascript File -->
-  <script src="assets/js/regression.js"></script>
+  <script src="assets/js/simplex.js"></script>
 
 </body>
 
