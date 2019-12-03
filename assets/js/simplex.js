@@ -169,8 +169,31 @@ function checkZ(m,nrow,ncol) {
 }
 
 function printTable(m, it) {
+  var div1 = document.createElement('div')
+  div1.classList.add('accordion-group')
+  var div2 = document.createElement('div')
+  div2.classList.add('accordion-heading')
+  var a = document.createElement('a')
+  a.classList.add('accordion-toggle')
+  a.setAttribute('data-toggle','collapse')
+  a.setAttribute('data-parent', '#accordion2')
+  a.setAttribute('href', '#collapse' + it)
+  var i = document.createElement('i')
+  i.classList.add('icon-caret-right')
+  i.textContent = 'Iteration ' + it
+  a.appendChild(i)
+  div2.appendChild(a)
+
+
+  var div3 = document.createElement('div')
+  div3.setAttribute('id', 'collapse'+it)
+  if(it==0) div3.classList.add('accordion-body', 'collapse', 'in')
+  else div3.classList.add('accordion-body', 'collapse')
+  var div4 = document.createElement('div')
+  div4.classList.add('accordion-inner')
+
   var table = document.createElement('table')
-  table.classList.add('table');
+  table.className = 'table'
   var row = document.createElement('tr')
   var cell = document.createElement('th')
   //add header
@@ -275,11 +298,12 @@ function printTable(m, it) {
     }
     table.appendChild(row)
   }
-
-  var text = document.createElement('P')
-  text.textContent = "iteration = " + it
-  document.getElementById('table').appendChild(text)
-  document.getElementById('table').appendChild(table)
+  
+  div4.appendChild(table)
+  div3.appendChild(div4)
+  div1.appendChild(div2)
+  div1.appendChild(div3)
+  document.getElementById('accordion2').appendChild(div1)
 }
 
 function simplex() {
@@ -380,7 +404,7 @@ function simplex() {
   console.log(m)
 
   //clear child
-  var doc = document.getElementById("table")
+  var doc = document.getElementById("accordion2")
   for(var j=doc.children.length-1;j>=0;j--) {
     doc.removeChild(doc.children[j]);
   }
