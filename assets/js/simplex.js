@@ -1,75 +1,95 @@
 simplex()
 //add event listeners
-document.getElementById('c11').addEventListener("input",function() {
-    console.log(document.getElementById('c11').innerHTML)
+document.getElementById('x1').addEventListener("input",function() {
+    console.log(document.getElementById('x1').innerHTML)
     simplex()
 },false)
-document.getElementById('c12').addEventListener("input",function() {
-    console.log(document.getElementById('c12').innerHTML)
+document.getElementById('x2').addEventListener("input",function() {
+    console.log(document.getElementById('x2').innerHTML)
     simplex()
 },false)
-document.getElementById('c13').addEventListener("input",function() {
-    console.log(document.getElementById('c13').innerHTML)
+document.getElementById('x3').addEventListener("input",function() {
+    console.log(document.getElementById('x3').innerHTML)
     simplex()
 },false)
-document.getElementById('c14').addEventListener("input",function() {
-    console.log(document.getElementById('c14').innerHTML)
+document.getElementById('x4').addEventListener("input",function() {
+    console.log(document.getElementById('x4').innerHTML)
     simplex()
 },false)
-document.getElementById('c15').addEventListener("input",function() {
-    console.log(document.getElementById('c15').innerHTML)
+document.getElementById('x5').addEventListener("input",function() {
+    console.log(document.getElementById('x5').innerHTML)
     simplex()
 },false)
-document.getElementById('c16').addEventListener("input",function() {
-    console.log(document.getElementById('c16').innerHTML)
-    simplex()
-},false)
-document.getElementById('c21').addEventListener("input",function() {
-    console.log(document.getElementById('c21').innerHTML) 
+document.getElementById('y1').addEventListener("input",function() {
+    console.log(document.getElementById('y1').innerHTML) 
     simplex() 
 },false)
-document.getElementById('c22').addEventListener("input",function() {
-    console.log(document.getElementById('c22').innerHTML)
+document.getElementById('y2').addEventListener("input",function() {
+    console.log(document.getElementById('y2').innerHTML)
     simplex()
 },false)
-document.getElementById('c23').addEventListener("input",function() {
-    console.log(document.getElementById('c23').innerHTML)
+document.getElementById('y3').addEventListener("input",function() {
+    console.log(document.getElementById('y3').innerHTML)
     simplex()
 },false)
-document.getElementById('c24').addEventListener("input",function() {
-    console.log(document.getElementById('c24').innerHTML)
+document.getElementById('y4').addEventListener("input",function() {
+    console.log(document.getElementById('y4').innerHTML)
     simplex()
 },false)
-document.getElementById('c25').addEventListener("input",function() {
-    console.log(document.getElementById('c25').innerHTML)
+document.getElementById('y5').addEventListener("input",function() {
+    console.log(document.getElementById('y5').innerHTML)
     simplex()
 },false)
-document.getElementById('c26').addEventListener("input",function() {
-    console.log(document.getElementById('c26').innerHTML)
+document.getElementById('z1').addEventListener("input",function() {
+    console.log(document.getElementById('z1').innerHTML)
     simplex()
 },false)
-document.getElementById('c31').addEventListener("input",function() {
-    console.log(document.getElementById('c31').innerHTML)
+document.getElementById('z2').addEventListener("input",function() {
+    console.log(document.getElementById('z2').innerHTML)
     simplex()
 },false)
-document.getElementById('c32').addEventListener("input",function() {
-    console.log(document.getElementById('c32').innerHTML)
+document.getElementById('z3').addEventListener("input",function() {
+    console.log(document.getElementById('z3').innerHTML)
     simplex()
 },false)
-document.getElementById('c33').addEventListener("input",function() {
-    console.log(document.getElementById('c33').innerHTML)
+document.getElementById('z4').addEventListener("input",function() {
+    console.log(document.getElementById('z4').innerHTML)
     simplex()
 },false)
-document.getElementById('c34').addEventListener("input",function() {
-    console.log(document.getElementById('c34').innerHTML)
+document.getElementById('z5').addEventListener("input",function() {
+    console.log(document.getElementById('z5').innerHTML)
     simplex()
 },false)
-document.getElementById('c35').addEventListener("input",function() {
-    console.log(document.getElementById('c35').innerHTML)
+document.getElementById('d1').addEventListener("input",function() {
+    console.log(document.getElementById('d1').innerHTML)
     simplex()
 },false)
-document.getElementById('c36').addEventListener("input",function() {
-    console.log(document.getElementById('c36').innerHTML)
+document.getElementById('d2').addEventListener("input",function() {
+    console.log(document.getElementById('d2').innerHTML)
+    simplex()
+},false)
+document.getElementById('d3').addEventListener("input",function() {
+    console.log(document.getElementById('d3').innerHTML)
+    simplex()
+},false)
+document.getElementById('d4').addEventListener("input",function() {
+    console.log(document.getElementById('d4').innerHTML)
+    simplex()
+},false)
+document.getElementById('d5').addEventListener("input",function() {
+    console.log(document.getElementById('d5').innerHTML)
+    simplex()
+},false)
+document.getElementById('s1').addEventListener("input",function() {
+    console.log(document.getElementById('s1').innerHTML)
+    simplex()
+},false)
+document.getElementById('s2').addEventListener("input",function() {
+    console.log(document.getElementById('s2').innerHTML)
+    simplex()
+},false)
+document.getElementById('s3').addEventListener("input",function() {
+    console.log(document.getElementById('s3').innerHTML)
     simplex()
 },false)
 
@@ -148,39 +168,152 @@ function checkZ(m,nrow,ncol) {
   return neg
 }
 
+function printTable(m, it) {
+  var table = document.createElement('table')
+  table.classList.add('table');
+  var row = document.createElement('tr')
+  var cell = document.createElement('th')
+  //add header
+  cell.textContent = 'x1'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'x2'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'x3'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'x4'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'x5'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'y1'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'y2'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'y3'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'y4'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'y5'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'z1'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'z2'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'z3'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'z4'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'z5'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's1'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's2'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's3'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's4'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's5'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's6'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's7'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's8'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'a1'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'a2'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'a3'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'a4'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'a5'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'Z'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 'RHS'
+  row.appendChild(cell)
+
+  table.appendChild(row)
+
+  for(var i=0;i<m.length;i++) {
+    var row = document.createElement('tr')
+    for(var j=0;j<m[i].length;j++) {
+      var cell = document.createElement('td')
+      cell.textContent = m[i][j]
+      row.appendChild(cell)
+    }
+    table.appendChild(row)
+  }
+
+  var text = document.createElement('P')
+  text.textContent = "iteration = " + it
+  document.getElementById('table').appendChild(text)
+  document.getElementById('table').appendChild(table)
+}
+
 function simplex() {
   //read input from document
-  c11 = Number(document.getElementById('c11').innerHTML)
-  c12 = Number(document.getElementById('c12').innerHTML)
-  c13 = Number(document.getElementById('c13').innerHTML)
-  c14 = Number(document.getElementById('c14').innerHTML)
-  c15 = Number(document.getElementById('c15').innerHTML)
-  c16 = Number(document.getElementById('c16').innerHTML)
+  x1 = Number(document.getElementById('x1').innerHTML)
+  x2 = Number(document.getElementById('x2').innerHTML)
+  x3 = Number(document.getElementById('x3').innerHTML)
+  x4 = Number(document.getElementById('x4').innerHTML)
+  x5 = Number(document.getElementById('x5').innerHTML)
 
-  c21 = Number(document.getElementById('c21').innerHTML)
-  c22 = Number(document.getElementById('c22').innerHTML)
-  c23 = Number(document.getElementById('c23').innerHTML)
-  c24 = Number(document.getElementById('c24').innerHTML)
-  c25 = Number(document.getElementById('c25').innerHTML)
-  c26 = Number(document.getElementById('c26').innerHTML)
+  y1 = Number(document.getElementById('y1').innerHTML)
+  y2 = Number(document.getElementById('y2').innerHTML)
+  y3 = Number(document.getElementById('y3').innerHTML)
+  y4 = Number(document.getElementById('y4').innerHTML)
+  y5 = Number(document.getElementById('y5').innerHTML)
 
-  c31 = Number(document.getElementById('c31').innerHTML)
-  c32 = Number(document.getElementById('c32').innerHTML)
-  c33 = Number(document.getElementById('c33').innerHTML)
-  c34 = Number(document.getElementById('c34').innerHTML)
-  c35 = Number(document.getElementById('c35').innerHTML)
-  c36 = Number(document.getElementById('c36').innerHTML)
+  z1 = Number(document.getElementById('z1').innerHTML)
+  z2 = Number(document.getElementById('z2').innerHTML)
+  z3 = Number(document.getElementById('z3').innerHTML)
+  z4 = Number(document.getElementById('z4').innerHTML)
+  z5 = Number(document.getElementById('z5').innerHTML)
 
-  c41 = Number(document.getElementById('c41').innerHTML)
-  c42 = Number(document.getElementById('c42').innerHTML)
-  c43 = Number(document.getElementById('c43').innerHTML)
-  c44 = Number(document.getElementById('c44').innerHTML)
-  c45 = Number(document.getElementById('c45').innerHTML)
+  s1 = Number(document.getElementById('s1').innerHTML)
+  s2 = Number(document.getElementById('s2').innerHTML)
+  s3 = Number(document.getElementById('s3').innerHTML)
 
-  //initialize max, # of iterations 
-  var max = 5
+  d1 = Number(document.getElementById('d1').innerHTML)
+  d2 = Number(document.getElementById('d2').innerHTML)
+  d3 = Number(document.getElementById('d3').innerHTML)
+  d4 = Number(document.getElementById('d4').innerHTML)
+  d5 = Number(document.getElementById('d5').innerHTML)
+ 
+  var max = 20
   var i = 1
-  //initialize array: Z[], TR[], m[][], m size: nrow ncol
   var TR;
   //test1
   // var Z = [c11,c21,c31,c12,c22,c32,c13,c23,c33,c14,c24,c34,c15,c25,c35,0,0,0,0,0,0,0,0,1,0]
@@ -195,60 +328,76 @@ function simplex() {
   //          Z]
   // var nrow = 9
   // var ncol = 25
-  //test2
-  var Z = [c11-c31,c12-c32,c13-c33,c14-c34,c15-c35,c21-c31,c22-c32,c23-c33,c24-c34,c25-c35,0,0,0,0,0,0,0,0,1,-(c31*c41+c32*c42+c33*c43+c34*c44+c35*c45)]
-  var m = [[1,1,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,c16],
-           [0,0,0,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,c26],
-           [1,1,1,1,1,1,1,1,1,1,,0,0,-1,0,0,0,0,0,0,c36],
-           [1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,c41],
-           [0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,c42],
-           [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,c43],
-           [0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,c44],
-           [0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,c45],
-           Z]
-  var nrow = 9
-  var ncol = 20
 
-  // m = GaussJordan(m,nrow,ncol,0,0)
+  //test2
+  // var Z = [c11-c31,c12-c32,c13-c33,c14-c34,c15-c35,c21-c31,c22-c32,c23-c33,c24-c34,c25-c35,0,0,0,0,0,0,0,0,1,-(c31*c41+c32*c42+c33*c43+c34*c44+c35*c45)]
+  // var m = [[1,1,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,c16],
+  //          [0,0,0,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,c26],
+  //          [1,1,1,1,1,1,1,1,1,1,,0,0,-1,0,0,0,0,0,0,c36],
+  //          [1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,c41],
+  //          [0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,c42],
+  //          [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,c43],
+  //          [0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,c44],
+  //          [0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,c45],
+  //          Z]
+  // var nrow = 9
+  // var ncol = 20
+
+  //test3
+  // var m = [[1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,x1],
+  //          [1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,x2],
+  //          [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,x3],
+  //          [1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,x4],
+  //          [1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,x5],
+  //          [0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,y1],
+  //          [0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,y2],
+  //          [0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,y3],
+  //          [0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,y4],
+  //          [0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,y5],
+  //          [0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,z1],
+  //          [0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,z2],
+  //          [0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,z3],
+  //          [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,z4],
+  //          [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,z5],
+  //          [-s1,-s2,-s3,-d1,-d2,-d3,-d4,-d5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]]
+  // var nrow = 16
+  // var ncol = 25
+
+  //test4
+  var x = 9999
+  var m = [[1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,s1],
+           [0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,s2],
+           [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,s3],
+           [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,0,0,d1],
+           [0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,0,d2],
+           [0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,d3],
+           [0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,d4],
+           [0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,d5],
+           [-x1,-x2,-x3,-x4,-x5,-y1,-y2,-y3,-y4,-y5,-z1,-z2,-z3,-z4,-z5,0,0,0,0,0,0,0,0,x,x,x,x,x,1,0]]
+  var nrow = 9
+  var ncol = 30
+
+  console.log(m)
+
+  //clear child
+  var doc = document.getElementById("table")
+  for(var j=doc.children.length-1;j>=0;j--) {
+    doc.removeChild(doc.children[j]);
+  }
+
+  printTable(m,0)
   while(checkZ(m,nrow-1,ncol)==1 && i<max) {
     Z = m[nrow-1]
     pc = findPivotColumn(Z)
     TR=solveTR(m,nrow,ncol-1,pc)
     pr = findPivotRow(TR)
     m = GaussJordan(m,nrow,ncol,pr,pc)
+    printTable(m,i)
     i++
   }
   console.log(m)
   cost = m[nrow-1][ncol-1]
 
   //print output to document
-  document.getElementById('output').innerHTML = -cost
+  document.getElementById('output').innerHTML = cost
 }
-
-// test simplex
-// var m = [[1,1,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,310],
-//          [0,0,0,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,260],
-//          [1,1,1,1,1,1,1,1,1,1,,0,0,-1,0,0,0,0,0,0,560],
-//          [1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,180],
-//          [0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,80],
-//          [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,200],
-//          [0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,160],
-//          [0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,220],
-//          [7,4,1,0,-5,3,1,-1,-2,-3,0,0,0,0,0,0,0,0,1,-4640]]
-
-// var nrow = 9
-// var ncol = 20
-// var TR
-// var max = 10
-// var i = 0
-// // m = GaussJordan(m,nrow,ncol,0,0)
-// while(checkZ(m,nrow-1,ncol)==1 && i<max) {
-//   Z = m[nrow-1]
-//   pc = findPivotColumn(Z)
-//   TR=solveTR(m,nrow,ncol-1,pc)
-//   pr = findPivotRow(TR)
-//   m = GaussJordan(m,nrow,ncol,pr,pc)
-//   i++
-// }
-
-// console.log(m)

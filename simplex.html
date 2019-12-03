@@ -111,63 +111,64 @@
           <table class="table table-striped">
             <tr>
               <th></th>
+              <th></th>
               <th>Sacramento</th>
               <th>Salt Lake City</th>
               <th>Chicago</th>
               <th>Albuquerque</th>
               <th>New York</th>
+            </tr>
+            <tr>
+              <th></th>
+              <th>Demands</th>
+              <td id="d1" contenteditable="true">180</td>
+              <td id="d2" contenteditable="true">80</td>
+              <td id="d3" contenteditable="true">200</td>
+              <td id="d4" contenteditable="true">160</td>
+              <td id="d5" contenteditable="true">220</td>
+            </tr>
+            <tr>
+              <th></th>
               <th>Supply</th>
+              <th colspan="5" style="text-align: center;">Shipping cost from plant to warehouse</th>
             </tr>
             <tr>
               <th>Denver</th>
-              <td id="c11" contenteditable="true">10</td>
-              <td id="c12" contenteditable="true">8</td>
-              <td id="c13" contenteditable="true">6</td>
-              <td id="c14" contenteditable="true">5</td>
-              <td id="c15" contenteditable="true">4</td>
-              <td id="c16" contenteditable="true">310</td>
+              <td id="s1" contenteditable="true">310</td>
+              <td id="x1" contenteditable="true">10</td>
+              <td id="x2" contenteditable="true">8</td>
+              <td id="x3" contenteditable="true">6</td>
+              <td id="x4" contenteditable="true">5</td>
+              <td id="x5" contenteditable="true">4</td>
             </tr>
             <tr>
               <th>Phoenix</th>
-              <td id="c21" contenteditable="true">6</td>
-              <td id="c22" contenteditable="true">5</td>
-              <td id="c23" contenteditable="true">4</td>
-              <td id="c24" contenteditable="true">3</td>
-              <td id="c25" contenteditable="true">6</td>
-              <td id="c26" contenteditable="true">260</td>
+              <td id="s2" contenteditable="true">260</td>
+              <td id="y1" contenteditable="true">6</td>
+              <td id="y2" contenteditable="true">5</td>
+              <td id="y3" contenteditable="true">4</td>
+              <td id="y4" contenteditable="true">3</td>
+              <td id="y5" contenteditable="true">6</td>
             </tr>
             <tr>
               <th>Dallas</th>
-              <td id="c31" contenteditable="true">3</td>
-              <td id="c32" contenteditable="true">4</td>
-              <td id="c33" contenteditable="true">5</td>
-              <td id="c34" contenteditable="true">5</td>
-              <td id="c35" contenteditable="true">9</td>
-              <td id="c36" contenteditable="true">280</td>
-            </tr>
-            <tr>
-              <th>Demand</th>
-              <td id="c41" contenteditable="true">180</td>
-              <td id="c42" contenteditable="true">80</td>
-              <td id="c43" contenteditable="true">200</td>
-              <td id="c44" contenteditable="true">160</td>
-              <td id="c45" contenteditable="true">220</td>
-              <td></td>
+              <td id="s3" contenteditable="true">280</td>
+              <td id="z1" contenteditable="true">3</td>
+              <td id="z2" contenteditable="true">4</td>
+              <td id="z3" contenteditable="true">5</td>
+              <td id="z4" contenteditable="true">5</td>
+              <td id="z5" contenteditable="true">9</td>
             </tr>
           </table>
         </div>
       </div>
 
       <div class="row">
-        <div class="span4">
-          <h6>Total shipping cost: $<span id='output'>69420</span></h6>
+        <div class="span4 offset3">
+          <h6>Minimum shipping cost: $<span id='output'>69420</span></h6>
         </div>
-        <div class="span8">
-          <div id="table">
-            Tableau:<br/>
-            Magna sunt pariatur id commodo exercitation minim labore officia non amet. Nisi consequat non magna est do minim ut voluptate elit ut dolore dolor do in aute non. Aliquip aute id irure non est in irure elit consequat. Officia anim dolore ullamco irure sit occaecat sed anim adipisicing commodo aute esse. Laboris sint aute cillum dolor in sed nulla esse fugiat in dolor velit aliquip fugiat irure amet aliqua. In aute nulla voluptate cillum nostrud deserunt veniam ullamco anim ullamco in qui. Laboris proident adipisicing officia est pariatur ut veniam ullamco sunt sint laborum fugiat. Cillum elit incididunt officia laboris sint sit fugiat nisi. Sunt ad ad ullamco qui ea enim aliqua eiusmod. Qui sint proident in veniam ea dolor esse cupidatat magna ut laboris elit cupidatat.
-          </div>
-          <div class="pagination pull-right">
+        <div class="span12">
+          <!-- <div class="pagination pull-left">
             <ul>
               <li>
                 <a href="#"><i class="icon-chevron-left"></i></a>
@@ -177,6 +178,8 @@
               </li>
             </ul>
           </div>
+          <br/><br/><br/> -->
+          <div id="table"></div>
         </div>
       </div>
 
