@@ -191,6 +191,7 @@ function printTable(m, it) {
   else div3.classList.add('accordion-body', 'collapse')
   var div4 = document.createElement('div')
   div4.classList.add('accordion-inner')
+  div4.style.overflow = 'auto'
 
   var table = document.createElement('table')
   table.className = 'table'
@@ -388,7 +389,11 @@ function simplex() {
   // var ncol = 25
 
   //test4
-  var x = 9999
+  var x = 999999
+  var nrow = 9
+  var ncol = 30
+  var cb = [x,x,x,x,x,x,x,x]
+  var cj = [x1,x2,x3,x4,x5,y1,y2,y3,y4,y5,z1,z2,z3,z4,z5,0,0,0,0,0,0,0,0,x,x,x,x,x,1,0]
   var m = [[1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,s1],
            [0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,s2],
            [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,s3],
@@ -398,10 +403,17 @@ function simplex() {
            [0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,d4],
            [0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,d5],
            [-x1,-x2,-x3,-x4,-x5,-y1,-y2,-y3,-y4,-y5,-z1,-z2,-z3,-z4,-z5,0,0,0,0,0,0,0,0,x,x,x,x,x,1,0]]
-  var nrow = 9
-  var ncol = 30
-
-  console.log(m)
+  //solve for zj
+  var zj = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  for(var j=0;j<ncol;j++) {
+    for(var k=0;k<8;k++) {
+      zj[j] += cb[k]*m[k][j]
+    }
+  }
+  //update cj-zj
+  for(var j=0;j<ncol;j++) {
+    m[8][j] = cj[j]-zj[j]
+  }
 
   //clear child
   var doc = document.getElementById("accordion2")
@@ -416,10 +428,24 @@ function simplex() {
     TR=solveTR(m,nrow,ncol-1,pc)
     pr = findPivotRow(TR)
     m = GaussJordan(m,nrow,ncol,pr,pc)
+
+    //update cb
+    cb[pr] = cj[pc]
+    //solve for zj
+    for(var j=0;j<ncol;j++) {
+      for(var k=0;k<8;k++) {
+        zj[j] += cb[k]*m[k][j]
+      }
+    }
+    //update cj-zj
+    for(var j=0;j<ncol;j++) {
+      m[8][j] = cj[j]-zj[j]
+    }
+
     printTable(m,i)
     i++
   }
-  console.log(m)
+
   cost = m[nrow-1][ncol-1]
 
   //print output to document
