@@ -184,7 +184,6 @@ function printTable(m, it) {
   a.appendChild(i)
   div2.appendChild(a)
 
-
   var div3 = document.createElement('div')
   div3.setAttribute('id', 'collapse'+it)
   if(it==0) div3.classList.add('accordion-body', 'collapse', 'in')
@@ -322,13 +321,14 @@ function simplex() {
   d4 = Number(document.getElementById('d4').innerHTML)
   d5 = Number(document.getElementById('d5').innerHTML)
  
+  //check for non feasible solutions
   if(s1+s2+s3<d1+d2+d3+d4+d5) {
     //clear child
     var doc = document.getElementById("accordion2")
     for(var j=doc.children.length-1;j>=0;j--) {
       doc.removeChild(doc.children[j]);
     }
-    
+
     document.getElementById('output').innerHTML = 'No feasible solution'
   }else {
     var max = 20
@@ -371,9 +371,8 @@ function simplex() {
       i++
     }
 
-    cost = m[nrow-1][ncol-1]
     //print output to document
-    document.getElementById('output').innerHTML = '$' + cost
+    document.getElementById('output').innerHTML = '$' + m[nrow-1][ncol-1]
   }
 
 }
