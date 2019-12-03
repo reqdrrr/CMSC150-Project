@@ -213,34 +213,13 @@ function printTable(m, it) {
   cell.textContent = 'x5'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'y1'
+  cell.textContent = 'x6'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'y2'
+  cell.textContent = 'x7'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'y3'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'y4'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'y5'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'z1'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'z2'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'z3'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'z4'
-  row.appendChild(cell)
-  var cell = document.createElement('th')
-  cell.textContent = 'z5'
+  cell.textContent = 'x8'
   row.appendChild(cell)
   var cell = document.createElement('th')
   cell.textContent = 's1'
@@ -267,19 +246,25 @@ function printTable(m, it) {
   cell.textContent = 's8'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'a1'
+  cell.textContent = 's9'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'a2'
+  cell.textContent = 's10'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'a3'
+  cell.textContent = 's11'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'a4'
+  cell.textContent = 's12'
   row.appendChild(cell)
   var cell = document.createElement('th')
-  cell.textContent = 'a5'
+  cell.textContent = 's13'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's14'
+  row.appendChild(cell)
+  var cell = document.createElement('th')
+  cell.textContent = 's15'
   row.appendChild(cell)
   var cell = document.createElement('th')
   cell.textContent = 'Z'
@@ -337,117 +322,58 @@ function simplex() {
   d4 = Number(document.getElementById('d4').innerHTML)
   d5 = Number(document.getElementById('d5').innerHTML)
  
-  var max = 20
-  var i = 1
-  var TR;
-  //test1
-  // var Z = [c11,c21,c31,c12,c22,c32,c13,c23,c33,c14,c24,c34,c15,c25,c35,0,0,0,0,0,0,0,0,1,0]
-  // var m = [[1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,c16],
-  //          [0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,c26],
-  //          [0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,c36],
-  //          [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,c41],
-  //          [0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,c42],
-  //          [0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,c43],
-  //          [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,-1,0,0,c44],
-  //          [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,c45],
-  //          Z]
-  // var nrow = 9
-  // var ncol = 25
-
-  //test2
-  // var Z = [c11-c31,c12-c32,c13-c33,c14-c34,c15-c35,c21-c31,c22-c32,c23-c33,c24-c34,c25-c35,0,0,0,0,0,0,0,0,1,-(c31*c41+c32*c42+c33*c43+c34*c44+c35*c45)]
-  // var m = [[1,1,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,c16],
-  //          [0,0,0,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,c26],
-  //          [1,1,1,1,1,1,1,1,1,1,,0,0,-1,0,0,0,0,0,0,c36],
-  //          [1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,c41],
-  //          [0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,c42],
-  //          [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,c43],
-  //          [0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,c44],
-  //          [0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,c45],
-  //          Z]
-  // var nrow = 9
-  // var ncol = 20
-
-  //test3
-  // var m = [[1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,x1],
-  //          [1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,x2],
-  //          [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,x3],
-  //          [1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,x4],
-  //          [1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,x5],
-  //          [0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,y1],
-  //          [0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,y2],
-  //          [0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,y3],
-  //          [0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,y4],
-  //          [0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,y5],
-  //          [0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,z1],
-  //          [0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,z2],
-  //          [0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,z3],
-  //          [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,z4],
-  //          [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,z5],
-  //          [-s1,-s2,-s3,-d1,-d2,-d3,-d4,-d5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]]
-  // var nrow = 16
-  // var ncol = 25
-
-  //test4
-  var x = 999999
-  var nrow = 9
-  var ncol = 30
-  var cb = [x,x,x,x,x,x,x,x]
-  var cj = [x1,x2,x3,x4,x5,y1,y2,y3,y4,y5,z1,z2,z3,z4,z5,0,0,0,0,0,0,0,0,x,x,x,x,x,1,0]
-  var m = [[1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,s1],
-           [0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,s2],
-           [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,s3],
-           [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,0,0,d1],
-           [0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,0,d2],
-           [0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,0,d3],
-           [0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,0,d4],
-           [0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-1,0,0,0,0,1,0,d5],
-           [-x1,-x2,-x3,-x4,-x5,-y1,-y2,-y3,-y4,-y5,-z1,-z2,-z3,-z4,-z5,0,0,0,0,0,0,0,0,x,x,x,x,x,1,0]]
-  //solve for zj
-  var zj = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-  for(var j=0;j<ncol;j++) {
-    for(var k=0;k<8;k++) {
-      zj[j] += cb[k]*m[k][j]
+  if(s1+s2+s3<d1+d2+d3+d4+d5) {
+    //clear child
+    var doc = document.getElementById("accordion2")
+    for(var j=doc.children.length-1;j>=0;j--) {
+      doc.removeChild(doc.children[j]);
     }
-  }
-  //update cj-zj
-  for(var j=0;j<ncol;j++) {
-    m[8][j] = cj[j]-zj[j]
-  }
+    
+    document.getElementById('output').innerHTML = 'No feasible solution'
+  }else {
+    var max = 20
+    var i = 1
+    var TR;
+    var m = [[-1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,x1],
+             [-1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,x2],
+             [-1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,x3],
+             [-1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,x4],
+             [-1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,x5],
+             [0,-1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,y1],
+             [0,-1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,y2],
+             [0,-1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,y3],
+             [0,-1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,y4],
+             [0,-1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,y5],
+             [0,0,-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,z1],
+             [0,0,-1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,z2],
+             [0,0,-1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,z3],
+             [0,0,-1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,z4],
+             [0,0,-1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,z5],
+             [s1,s2,s3,-d1,-d2,-d3,-d4,-d5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]]
+    var nrow = 16
+    var ncol = 25
 
-  //clear child
-  var doc = document.getElementById("accordion2")
-  for(var j=doc.children.length-1;j>=0;j--) {
-    doc.removeChild(doc.children[j]);
-  }
-
-  printTable(m,0)
-  while(checkZ(m,nrow-1,ncol)==1 && i<max) {
-    Z = m[nrow-1]
-    pc = findPivotColumn(Z)
-    TR=solveTR(m,nrow,ncol-1,pc)
-    pr = findPivotRow(TR)
-    m = GaussJordan(m,nrow,ncol,pr,pc)
-
-    //update cb
-    cb[pr] = cj[pc]
-    //solve for zj
-    for(var j=0;j<ncol;j++) {
-      for(var k=0;k<8;k++) {
-        zj[j] += cb[k]*m[k][j]
-      }
-    }
-    //update cj-zj
-    for(var j=0;j<ncol;j++) {
-      m[8][j] = cj[j]-zj[j]
+    //clear child
+    var doc = document.getElementById("accordion2")
+    for(var j=doc.children.length-1;j>=0;j--) {
+      doc.removeChild(doc.children[j]);
     }
 
-    printTable(m,i)
-    i++
+    printTable(m,0)
+    while(checkZ(m,nrow-1,ncol)==1 && i<max) {
+      Z = m[nrow-1]
+      pc = findPivotColumn(Z)
+      TR=solveTR(m,nrow,ncol-1,pc)
+      pr = findPivotRow(TR)
+      m = GaussJordan(m,nrow,ncol,pr,pc)
+
+      printTable(m,i)
+      i++
+    }
+
+    cost = m[nrow-1][ncol-1]
+    //print output to document
+    document.getElementById('output').innerHTML = '$' + cost
   }
 
-  cost = m[nrow-1][ncol-1]
-
-  //print output to document
-  document.getElementById('output').innerHTML = cost
 }
