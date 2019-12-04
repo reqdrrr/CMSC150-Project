@@ -178,10 +178,7 @@ function printTable(m, it) {
   a.setAttribute('data-toggle','collapse')
   a.setAttribute('data-parent', '#accordion2')
   a.setAttribute('href', '#collapse' + it)
-  var i = document.createElement('i')
-  i.classList.add('icon-caret-right')
-  i.textContent = 'Iteration ' + it
-  a.appendChild(i)
+  a.textContent = 'Iteration ' + it
   div2.appendChild(a)
 
   var div3 = document.createElement('div')
