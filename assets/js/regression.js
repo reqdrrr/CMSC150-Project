@@ -60,7 +60,7 @@ function GaussJordan(m,row) {
     var pivot_row = findRow(col,pivot_row_val)
 
     // swap
-    if(pivot_row>=0 && n!=3){
+    if(pivot_row>=0 && n<3 && a[pivot_row]){
     	var temp = a[pivot_row];
 			for(k=0;k<temp.length;k++) {
 				[a[pivot_row][k],a[i][k]]=[a[i][k],a[pivot_row][k]]
@@ -112,7 +112,7 @@ function PolynomialRegression(lines) {
 	//get params
   var x = lines.map(function(value,index) { return value[0]; })
   var y = lines.map(function(value,index) { return value[1]; })
-	var deg = Number(document.getElementById('inputDegree').value);
+  var deg = Number(document.getElementById('inputDegree').value);
 
   if(deg+1>x.length) {
     console.log("Error")
