@@ -117,9 +117,9 @@ function PolynomialRegression(lines) {
   if(deg+1>x.length) {
     console.log("Error")
     var doc = document.getElementById("outputRegression")
-    if(doc.children.length>0) {
-      doc.removeChild(doc.children[1]); 
-      doc.removeChild(doc.children[0]); 
+    //clear child
+    for(var j=doc.children.length-1;j>=0;j--) {
+      doc.removeChild(doc.children[j]);
     }
     var node = document.createElement("H6");
     var textNode = document.createTextNode("NOPE");
@@ -160,10 +160,9 @@ function PolynomialRegression(lines) {
     
     //clear child
     var doc = document.getElementById("outputRegression")
-    if(doc.children.length>1) {
-      doc.removeChild(doc.children[1]); 
-      doc.removeChild(doc.children[0]); 
-    }else if(doc.children.length>0) doc.removeChild(doc.children[0]);
+    for(var j=doc.children.length-1;j>=0;j--) {
+      doc.removeChild(doc.children[j]);
+    }
 
     //add function
     var node = document.createElement("H6");
